@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 05:58:23 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 06:08:44 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/19 06:19:54 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,4 @@ void	move(char move, t_elements *vrs)
 	else if (move == 'D')
 		x += 1;
 	map_update(vrs, &vrs->map, x, y);
-cd }
+}
