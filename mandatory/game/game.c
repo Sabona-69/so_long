@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 02:15:15 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 05:47:43 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/19 06:22:53 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ int	apply_moves(int key, t_elements *vrs)
 	else if (key == 2 || key == 124)
 		move('D', vrs);
 	else if (key == 53)
-		(ft_free2d(vrs->map, vrs->y_len)
-			, ft_putstr_fd(RED"Good Bye !\n", 1), exit(0));
+		exit_window(vrs);
 	return (0);
 }
 
@@ -51,6 +50,7 @@ void	create_game(t_elements *vrs)
 	init_t_mlx(vrs);
 	put_map_to_window(vrs);
 	mlx_key_hook(vrs->game.window, apply_moves, vrs);
+	mlx_hook(vrs->game.window, 17, 0, exit_window, vrs);
 	mlx_loop(vrs->game.init);
 	ft_free2d(vrs->map, vrs->y_len);
 }

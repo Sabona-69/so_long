@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 20:45:05 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/02 06:20:13 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/19 06:21:00 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,11 @@ void	mlx_error(t_elements *vrs, char *s)
 	ft_free2d(vrs->map, vrs->y_len);
 	ft_putstr_fd(s, 2);
 	exit (1);
+}
+
+int	exit_window(t_elements *vrs)
+{
+	ft_free2d(vrs->map, vrs->y_len);
+	ft_putstr_fd(RED"Good Bye !\n"RESET, 1);
+	exit(0);
 }

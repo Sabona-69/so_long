@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 22:35:33 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 04:02:48 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/19 06:29:06 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ typedef struct s_elements
 	t_enemy			enemy[5];
 	t_mlx			game;
 	void			*attack[6];
-	char			*attack_m[6];
 	void			*chest[10];
+	char			*attack_m[6];
 	char			*chest_m[10];
 	char			**map;
 	char			**map_cp;
@@ -106,6 +106,7 @@ void	ft_win(t_elements *vrs);
 int		flag(void);
 void	put_image(t_elements *vrs, void *s, int x, int y);
 char	*ft_itoa(int nbr);
+
 // Handle Errors
 void	**ft_free2d(char **str, int k);
 void	ft_error(char *s);
