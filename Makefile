@@ -50,5 +50,3 @@ fclean			: clean
 					@$(RM) $(NAME) $(BNAME)
 
 re				: fclean all
-
-A				: bonus clean

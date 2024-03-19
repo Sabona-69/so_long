@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 22:35:33 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 06:28:29 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/19 19:52:20 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	ft_error(char *s);
 void	ft_putstr_fd(char *s, int fd);
 void	mlx_error(t_elements *vrs, char *s);
 int		exit_window(t_elements *vrs);
-
 
 // Game 
 void	put_image(t_elements *vrs, void *s, int x, int y);
