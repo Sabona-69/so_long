@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 05:58:23 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 06:19:54 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:34:09 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ void	init_t_mlx(t_elements *vrs)
 	vrs->game.wall = xpm_to_image(vrs, "textures/wall.xpm");
 	vrs->game.floor = xpm_to_image(vrs, "textures/floor.xpm");
 	if (!vrs->game.init || !vrs->game.window)
-		mlx_error(vrs, RED"xpm init or window error !\n");
+		mlx_error(vrs, RED"xpm init or window error !\n"RESET);
 }
 
 void	ft_win(t_elements *vrs)
 {
 	ft_free2d(vrs->map, vrs->y_len);
-	(ft_putstr_fd(GREEN"You Win !\n"RESET, 1), exit(1));
+	(ft_putstr_fd(GREEN"You Win !\n", 1), exit(0));
 }
 
 int	map_update(t_elements *vrs, char ***s, int x, int y)

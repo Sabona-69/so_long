@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 22:35:33 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 19:52:20 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:30:53 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_elements
 	t_mlx		game;
 	char		**map;
 	char		**map_cp;
+	int			fd;
 	int			x_len;
 	int			y_len;
 	int			c;

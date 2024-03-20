@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 02:15:15 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 03:51:26 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:54:19 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	create_game(t_elements *vrs)
 	init_t_mlx(vrs);
 	put_map_to_window(vrs);
 	print_move(vrs);
-	mlx_hook(vrs->game.window, 2, 0, apply_moves, vrs);
+	mlx_key_hook(vrs->game.window, apply_moves, vrs);
 	mlx_loop_hook(vrs->game.init, animation, vrs);
 	mlx_hook(vrs->game.window, 17, 0, exit_window, vrs);
 	mlx_loop(vrs->game.init);

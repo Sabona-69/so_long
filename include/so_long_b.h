@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 22:35:33 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 06:29:06 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:41:54 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_mlx
 	void			*exit;
 	void			*o_exit;
 	void			*collect;
+	void			*victory;
+	void			*defeat;
 	void			*wall;
 	void			*floor;
 	int				moves;
@@ -75,6 +77,7 @@ typedef struct s_elements
 	char			*chest_m[10];
 	char			**map;
 	char			**map_cp;
+	int				fd;
 	int				x_len;
 	int				y_len;
 	int				c;

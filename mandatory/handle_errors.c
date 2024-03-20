@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 20:45:05 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 19:52:30 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:15:09 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	**ft_free2d(char **str, int k)
 
 void	mlx_error(t_elements *vrs, char *s)
 {
+	close(vrs->fd);
 	ft_free2d(vrs->map, vrs->y_len);
 	ft_putstr_fd(s, 2);
 	exit (1);

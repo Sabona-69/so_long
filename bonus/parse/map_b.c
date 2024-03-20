@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 20:26:34 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 04:44:13 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:32:00 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	check_name(char *av)
 
 	i = ft_strlen (av);
 	if ((i < 4) || ft_strncmp(&av[i - 4], ".ber", 4) != 0)
-		(ft_error(RED"Invalid Name !"), exit(1));
+		ft_error(RED"Invalid Name !\n"RESET);
 }
 
 void	innit_t_elements(t_elements *vrs)
@@ -48,7 +48,7 @@ void	check_walls(char **s, int x, int y)
 		while (s[0][i] && s[y][i])
 		{
 			if (s[0][i] != '1' || s[y][i] != '1')
-				ft_error(RED"Invalid Map !\nCheck the walls");
+				ft_error(RED"Invalid Map !\nCheck the walls\n"RESET);
 			i++;
 		}
 		y++;
@@ -57,7 +57,7 @@ void	check_walls(char **s, int x, int y)
 	while (s[y])
 	{
 		if (s[y][0] != '1' || s[y][x] != '1')
-			ft_error(RED"Invalid Map !\nCheck the walls");
+			ft_error(RED"Invalid Map !\nCheck the walls\n"RESET);
 		y++;
 	}
 }
@@ -95,7 +95,7 @@ void	map_parse(char *av, t_elements *vrs)
 		{
 			if (vrs->map_cp[j][i] == 'C' || vrs->map_cp[j][i] == 'P'
 				|| vrs->map_cp[j][i] == 'E')
-				(ft_error(RED"Invalid path !\nYou can't win"), exit(1));
+				ft_error(RED"Invalid path !\nYou can't win\n"RESET);
 			i++;
 		}
 		j++;

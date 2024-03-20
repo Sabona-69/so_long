@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 18:06:42 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 05:36:12 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:24:54 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ void	init_t_mlx(t_elements *vrs)
 	vrs->game.collect = xpm_to_image(vrs, "textures/collect.xpm");
 	vrs->game.wall = xpm_to_image(vrs, "textures/wall.xpm");
 	vrs->game.floor = xpm_to_image(vrs, "textures/floor.xpm");
+	vrs->game.defeat = xpm_to_image(vrs, "textures/defeat.xpm");
+	vrs->game.victory = xpm_to_image(vrs, "textures/victory.xpm");
 	if (!vrs->game.init || !vrs->game.window)
-		mlx_error(vrs, RED"xpm init or window error !\n");
+		mlx_error(vrs, RED"xpm init or window error !\n"RESET);
 }
 
 void	update_player(t_elements *vrs, int x, int y)

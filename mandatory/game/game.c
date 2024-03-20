@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 02:15:15 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 06:22:53 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:34:21 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*xpm_to_image(t_elements *vrs, char *s)
 	i = 64;
 	elem = mlx_xpm_file_to_image(vrs->game.init, s, &i, &i);
 	if (!elem)
-		mlx_error(vrs, RED"xpm file error !\n");
+		mlx_error(vrs, RED"xpm file error !\n"RESET);
 	return (elem);
 }
 

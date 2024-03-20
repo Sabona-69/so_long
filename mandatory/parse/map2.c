@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 23:47:27 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/19 06:00:34 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:38:33 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ void	map_innit(char *av, t_elements *vrs)
 {
 	char	*map;
 	char	*line;
-	int		fd;
 
-	fd = open(av, O_RDONLY);
+	vrs->fd = open(av, O_RDONLY);
 	map = NULL;
-	line = get_next_line(fd);
+	line = get_next_line(vrs->fd);
 	while (line)
 	{
 		map = ft_strjoin(map, line);
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(vrs->fd);
 	}
 	if (map && map[ft_strlen(map) - 1] == '\n')
-		(free(map), ft_error(RED"New line at the end of file !\n"));
+		(close(vrs->fd), free(map),
+			ft_error(RED"New line at the end of file !\n"RESET));
 	vrs->map = ft_split(map, '\n');
 	vrs->map_cp = ft_split(map, '\n');
 	free(map);
-	close(fd);
+	close(vrs->fd);
 }
 
 void	get_position(char **s, t_elements *vrs)
@@ -63,13 +63,13 @@ void	get_position(char **s, t_elements *vrs)
 	}
 }
 
-void	ft_syntax(char *line, t_elements *vrs, int fd)
+void	ft_syntax(char *line, t_elements *vrs)
 {
 	while (*line && *line != '\n')
 	{
 		if (*line != '1' && *line != '0' && *line != 'E'
 			&& *line != 'P' && *line != 'C')
-			(close(fd), ft_error(RED"Invalid map instractions !\n"));
+			(close(vrs->fd), ft_error(RED"Invalid map instractions !\n"RESET));
 		else if (*line == 'C')
 			vrs->c++;
 		else if (*line == 'P')
@@ -83,25 +83,25 @@ void	ft_syntax(char *line, t_elements *vrs, int fd)
 void	check_syntax(char *av, t_elements *vrs)
 {
 	char	*line;
-	int		fd;
 
-	fd = open(av, O_RDWR);
-	if (fd < 0)
-		ft_error(RED"Invalid file !\n");
-	line = get_next_line(fd);
+	vrs->fd = open(av, O_RDWR);
+	if (vrs->fd < 0)
+		ft_error(RED"Invalid file !\n"RESET);
+	line = get_next_line(vrs->fd);
 	(line != NULL) && (vrs->x_len = ft_strlen_nl(line));
 	while (line)
 	{
 		vrs->y_len++;
-		ft_syntax(line, vrs, fd);
+		ft_syntax(line, vrs);
 		if (vrs->x_len != ft_strlen_nl(line))
-			(close(fd), ft_error(RED"Map size invalid\n"));
+			(close(vrs->fd), free(line),
+				ft_error(RED"Map size invalid\n"RESET));
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(vrs->fd);
 	}
-	close(fd);
+	close(vrs->fd);
 	if (vrs->c == 0 || vrs->e != 1 || vrs->p != 1)
-		(ft_error(RED"Invalid map elements !\n"));
+		ft_error(RED"Invalid map elements !\n"RESET);
 	if (vrs->x_len > 128 || vrs->y_len > 128)
-		ft_error(RED"Mlx can't render all this !\n");
+		ft_error(RED"Mlx can't render all this !\n"RESET);
 }
