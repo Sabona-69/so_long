@@ -6,7 +6,7 @@
 /*   By: hel-omra <hel-omra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 23:24:28 by hel-omra          #+#    #+#             */
-/*   Updated: 2024/03/20 15:19:12 by hel-omra         ###   ########.fr       */
+/*   Updated: 2024/03/21 04:45:16 by hel-omra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_move(t_elements *vrs)
 	char	*s;
 
 	s = ft_itoa(vrs->game.moves);
-	moves = xpm_to_image(vrs, "textures/move.xpm");
+	moves = xpm_to_image(vrs, "textures/moves.xpm");
 	ft_putstr_fd("moves : ", 1);
 	mlx_put_image_to_window(vrs->game.init, vrs->game.window,
 		moves, 0 * 150, 0 * 64);
